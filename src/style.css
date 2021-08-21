@@ -1,0 +1,33 @@
+body {
+  font-family: "Courier New", Courier, monospace;
+}
+h1 {
+  font-size: 32px;
+  font-weight: 600;
+  color: #9e9292;
+  height: 32px;
+  margin-bottom: 0;
+}
+ul {
+  list-style: none;
+  padding-left: 0;
+  height: 32px;
+}
+.container {
+  max-width: 600px;
+  border: 1px solid #f12a90;
+  border-radius: 6px;
+  margin-top: 30px;
+  padding: 25px;
+}
+.weather-description {
+  margin-top: 12px;
+}
+.temperature {
+  font-size: 45px;
+  color: #9e9292;
+}
+.units {
+  position: relative;
+  top: -22px;
+}
