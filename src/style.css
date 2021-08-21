@@ -1,11 +1,15 @@
 body {
   font-family: "Courier New", Courier, monospace;
 }
+input {
+  width: 310px;
+}
 h1 {
   font-size: 32px;
   font-weight: 600;
   color: #9e9292;
   height: 32px;
+  margin-top: 5px;
   margin-bottom: 0;
 }
 ul {
