@@ -17,11 +17,18 @@ ul {
   padding-left: 0;
   height: 32px;
 }
+li::first-letter {
+  text-transform: capitalize;
+}
+a {
+  text-decoration: none;
+  color: #464242;
+}
 .container {
   max-width: 600px;
   border: 1px solid #f12a90;
   border-radius: 6px;
-  margin-top: 30px;
+  margin-top: 30px auto;
   padding: 25px;
 }
 .weather-description {
