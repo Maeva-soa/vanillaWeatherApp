@@ -58,6 +58,7 @@ function showTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2×png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+  celsiusTemperature = response.data.main.temp;
 }
 
 function search(city) {
@@ -66,8 +67,36 @@ function search(city) {
   axios.get(apiUrl).then(showTemperature);
 }
 
+function displayCelsius(event) {
+  event.preventDefault();
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.remove("active");
+  let currentTemperatureElement = document.querySelector(
+    "#current-temperature"
+  );
+  currentTemperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+function displayFahrenheit(event) {
+  event.preventDefault();
+  celsiusLink.classList.add("active");
+  let currentTemperatureElement = document.querySelector(
+    "#current-temperature"
+  );
+  currentTemperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheit);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsius);
+
 let geolocationButton = document.querySelector("#current");
 geolocationButton.addEventListener("click", displayCurrentLocation);
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 search("Paris");
