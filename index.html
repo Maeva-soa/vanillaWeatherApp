@@ -22,10 +22,10 @@
         <button type="button" class="btn btn-primary">Search</button>
         <button type="button" class="btn btn-success">My location</button>
       </form>
-      <h1>Ambohitsoa</h1>
+      <h1 id="city-name">Ambohitsoa</h1>
       <ul>
-        <li>Saturday, 23:18</li>
-        <li>Fair</li>
+        <li id="currentDate">Saturday, 23:18</li>
+        <li id="description">Fair</li>
       </ul>
       <div class="row">
         <div class="col-8">
@@ -34,12 +34,17 @@
             alt="fair"
             width="90px"
           />
-          <span class="temperature">14</span><span class="units">°C|°F</span>
+          <span class="temperature" id="temperature">14</span
+          ><span class="units"
+            ><span id="celsius-temp">°C</span>|<span id="fahrenheit-temp"
+              >°F</span
+            ></span
+          >
         </div>
         <div class="col-4">
           <ul class="weather-description">
-            <li>Humidity : 75 %</li>
-            <li>Wind : 4 km/h</li>
+            <li id="humidity">Humidity : 75 %</li>
+            <li id="wind">Wind : 4 km/h</li>
           </ul>
         </div>
       </div>
