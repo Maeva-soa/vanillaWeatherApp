@@ -22,13 +22,16 @@ function formatDate(timestamp) {
 }
 
 function showTemperature(response) {
+  console.log(response.data.main.temp);
   let cityNameElement = document.querySelector("#city-name");
-  let dateElement = document.querySelector("#currentDate");
-  let temperatureElement = document.querySelector("#temperature");
+  let dateElement = document.querySelector("#current-date");
+  let currentTemperatureElement = document.querySelector(
+    "#current-temperature"
+  );
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
   cityNameElement.innerHTML = response.data.name;
-  temperatureElement = Math.round(response.data.main.temp);
+  currentTemperatureElement.innerHTML = Math.round(response.data.main.temp);
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
   description.innerHTML = response.data.weather[0].description;
