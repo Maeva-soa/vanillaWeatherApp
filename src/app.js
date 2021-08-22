@@ -21,8 +21,24 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
+}
+function currentLocation(position) {
+  let longitude = position.coords.longitude;
+  let latitude = position.coords.latitude;
+  let apiKey = "0d800c588dc0c17f7124ec074768af05";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showTemperature);
+}
+function displayCurrentLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(currentLocation);
+}
+
 function showTemperature(response) {
-  console.log(response.data.weather[0].icon);
   let cityNameElement = document.querySelector("#city-name");
   let dateElement = document.querySelector("#current-date");
   let currentTemperatureElement = document.querySelector(
@@ -44,6 +60,14 @@ function showTemperature(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
-let apiKey = "0d800c588dc0c17f7124ec074768af05";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Paris&appid=${apiKey}&units=metric`;
-axios.get(apiUrl).then(showTemperature);
+function search(city) {
+  let apiKey = "0d800c588dc0c17f7124ec074768af05";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showTemperature);
+}
+
+let geolocationButton = document.querySelector("#current");
+geolocationButton.addEventListener("click", displayCurrentLocation);
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
+search("Paris");
