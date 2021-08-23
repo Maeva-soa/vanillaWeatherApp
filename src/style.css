@@ -52,6 +52,8 @@ a {
 }
 .footer {
   text-align: center;
+  font-size: 12px;
+  text-decoration: wavy;
 }
 .github-link {
   color: #515beb;
